@@ -4,30 +4,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Program
+namespace Printer
 {
     class Program
-
     {
         static void Main(string[] args)
         {
-            Animal animal = new Animal();
-            animal.Speak();
+            Printer printer;
 
-            Cat cat = new Cat();
-            animal = cat;
-            //cat.Speak();
-            animal.Speak();
+            Console.WriteLine("Pilih Printer");
+            Console.WriteLine("1.Epson");
+            Console.WriteLine("2.Canon");
+            Console.WriteLine("3.Laserinject");
 
-            Chicken chicken = new Chicken();
-            animal = chicken;
-            //chicken.Speak();
-            animal.Speak();
+            Console.WriteLine("Nomor Printer [1..3: ");
+            int nomorPrinter = Convert.ToInt32(Console.ReadLine());
 
-            Dog dog = new Dog();
-            animal = dog;
-           // dog.Speak();
-            animal.Speak();
+            if (nomorPrinter == 1)
+                printer = new Epson();
+            else if (nomorPrinter == 2)
+                printer = new Canon();
+            else
+                printer = new Laserinject();
+
+            printer.Show();
+            printer.Print();
 
             Console.ReadKey();
         }
